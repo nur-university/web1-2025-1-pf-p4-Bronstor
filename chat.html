@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>MarketPlace | Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">MarketPlace</div>
+    <nav class="nav-main">
+      <a href="index.html" class="btn-secundario">Volver al inicio</a>
+      <div class="user-actions">
+        <a href="#">Login</a>
+        <a href="#">Carrito</a>
+        <a href="chat.html">Mensajes</a>
+      </div>
+    </nav>
+  </header>
+  <div class="chat-container">
+    <aside class="chat-list">
+      <h3>Chats</h3>
+      <ul>
+        <li class="chat-active"><span>Juan Pérez</span></li>
+        <li><span>Laura Martínez</span></li>
+        <li><span>Admin Tienda</span></li>
+      </ul>
+    </aside>
+    <main class="chat-main">
+      <div class="chat-header">
+        <span>Juan Pérez</span>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="mensaje mensaje-otro">
+          <div class="mensaje-texto">¡Hola! ¿Sigue disponible el smartwatch?</div>
+          <div class="mensaje-hora">09:15</div>
+        </div>
+        <div class="mensaje mensaje-propio">
+          <div class="mensaje-texto">¡Hola! Sí, está disponible para entrega inmediata.</div>
+          <div class="mensaje-hora">09:16</div>
+        </div>
+        <div class="mensaje mensaje-otro">
+          <div class="mensaje-texto">¿Incluye garantía?</div>
+          <div class="mensaje-hora">09:17</div>
+        </div>
+        <div class="mensaje mensaje-propio">
+          <div class="mensaje-texto">Claro, tiene garantía de 6 meses por defectos de fábrica.</div>
+          <div class="mensaje-hora">09:18</div>
+        </div>
+      </div>
+      <form class="chat-input" id="chat-form" autocomplete="off">
+        <input type="text" id="mensaje-input" placeholder="Escribe un mensaje..." autocomplete="off">
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <div>© 2025 MarketPlace. Todos los derechos reservados.</div>
+  </footer>
+  <script>
+    const chatForm = document.getElementById('chat-form');
+    const mensajeInput = document.getElementById('mensaje-input');
+    const chatMessages = document.getElementById('chat-messages');
+    chatForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const texto = mensajeInput.value.trim();
+      if (texto === "") return;
+      const div = document.createElement('div');
+      div.classList.add('mensaje', 'mensaje-propio');
+      div.innerHTML = `
+        <div class="mensaje-texto">${texto}</div>
+        <div class="mensaje-hora">${getHora()}</div>
+      `;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      mensajeInput.value = "";
+      mensajeInput.focus();
+      setTimeout(() => {
+        const respuesta = document.createElement('div');
+        respuesta.classList.add('mensaje', 'mensaje-otro');
+        respuesta.innerHTML = `
+          <div class="mensaje-texto">¡Gracias por tu mensaje! Te responderé pronto.</div>
+          <div class="mensaje-hora">${getHora()}</div>
+        `;
+        chatMessages.appendChild(respuesta);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1000);
+    });
+    mensajeInput.addEventListener('keydown', function(e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        chatForm.dispatchEvent(new Event('submit'));
+      }
+    });
+    function getHora() {
+      const ahora = new Date();
+      return ahora.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    }
+  </script>
+</body>
+</html>
