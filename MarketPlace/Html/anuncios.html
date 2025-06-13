@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarketPlace | Catálogo</title>
+  <link rel="stylesheet" href="/MarketPlace/Css/style.css">
+  <script src="/MarketPlace/Js/scripts.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">MarketPlace</div>
+    <nav class="nav-main">
+      <button id="toggle-categories" class="menu-categories-btn">&#9776; Categorías</button>
+      <form class="searchbar">
+        <input type="text" placeholder="Buscar productos...">
+        <button type="submit">Buscar</button>
+      </form>
+      <div class="user-actions">
+        <a href="#">Login</a>
+        <a href="#">Carrito</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="main-container">
+    <aside id="sidebar-categories" class="sidebar">
+      <ul>
+        <li><a href="#">Electrónica</a></li>
+        <li><a href="#">Hogar</a></li>
+        <li><a href="#">Juguetes</a></li>
+        <li><a href="#">Oficina</a></li>
+        <li><a href="#">Moda</a></li>
+        <li><a href="#">Deportes</a></li>
+        <li><a href="#">Mascotas</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <section class="filtros">
+        <input type="text" placeholder="Buscar..." id="busqueda">
+        <select>
+          <option value="">Todas las categorías</option>
+          <option value="Electrónica">Electrónica</option>
+          <option value="Hogar">Hogar</option>
+          <option value="Juguetes">Juguetes</option>
+          <option value="Oficina">Oficina</option>
+          <option value="Moda">Moda</option>
+          <option value="Deportes">Deportes</option>
+          <option value="Mascotas">Mascotas</option>
+        </select>
+      </section>
+      <section class="productos-grid">
+        <div class="producto-card">
+          <img src="../img/producto1.jpg" alt="Smartwatch Fitband">
+          <h3>Smartwatch Fitband</h3>
+          <p class="precio">$40.00</p>
+          <a href="anuncio_detalle.html" class="btn-secundario">Ver detalle</a>
+        </div>
+        <div class="producto-card">
+          <img src="../img/producto2.jpg" alt="Auriculares Inalámbricos">
+          <h3>Auriculares Inalámbricos</h3>
+          <p class="precio">$28.50</p>
+          <a href="anuncio_detalle.html" class="btn-secundario">Ver detalle</a>
+        </div>
+        <div class="producto-card">
+          <img src="../img/producto3.jpg" alt="Cafetera Espresso">
+          <h3>Cafetera Espresso</h3>
+          <p class="precio">$65.90</p>
+          <a href="anuncio_detalle.html" class="btn-secundario">Ver detalle</a>
+        </div>
+        <div class="producto-card">
+          <img src="../img/producto4.jpg" alt="Silla Ergonómica">
+          <h3>Silla Ergonómica</h3>
+          <p class="precio">$120.00</p>
+          <a href="anuncio_detalle.html" class="btn-secundario">Ver detalle</a>
+        </div>
+        <div class="producto-card">
+          <img src="../img/producto5.jpg" alt="Cámara Profesional">
+          <h3>Cámara Profesional</h3>
+          <p class="precio">$400.00</p>
+          <a href="anuncio_detalle.html" class="btn-secundario">Ver detalle</a>
+        </div>
+        <div class="producto-card">
+          <img src="../img/producto6.jpg" alt="Zapatillas Running">
+          <h3>Zapatillas Running</h3>
+          <p class="precio">$59.99</p>
+          <a href="anuncio_detalle.html" class="btn-secundario">Ver detalle</a>
+        </div>
+      </section>
+      <nav class="paginacion">
+        <button disabled>Anterior</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>Siguiente</button>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div>© 2025 MarketPlace. Todos los derechos reservados.</div>
+    <div class="footer-links">
+      <a href="#">Facebook</a> | <a href="#">Instagram</a>
+    </div>
+  </footer>
+</body>
+</html>
